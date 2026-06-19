@@ -14,4 +14,4 @@ app.use("/api",(req,res)=>{
     res.send("hello World");
 })
 
-app.listen(PORT,()=>console.log('App is running at 5000...'))
+app.listen(PORT,()=>console.log(`App is running at ${PORT}`))
