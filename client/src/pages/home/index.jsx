@@ -54,7 +54,7 @@ export default function Home(){
                             blogList && blogList.length ? blogList.map((blogItem)=>
                             <div key={blogItem._id}
                                 //className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm hover:shadow-md transition"
-                                className="bg-gradient-to-br from-white to-blue-50 border border-blue-200 rounded-xl p-5 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                                className="bg-linear-to-br from-white to-blue-50 border border-blue-200 rounded-xl p-5 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
                             >
                                 <p //className="text-xl font-semibold text-gray-800 mb-2"
                                     className="text-xl font-bold text-blue-700 mb-2"
