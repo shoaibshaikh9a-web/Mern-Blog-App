@@ -12,7 +12,7 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-      <div>
+      <div className="h-screen">
         <Header/>
         <Routes>
           <Route exact path='/' element={<Home/>}/>

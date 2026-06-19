@@ -48,10 +48,12 @@ export default function AddNewBlog(){
         }
     },[location])
     return(
-        <div className={classes.wrapper}>
-            <h1>{isEdit?'Edit a Blog':"Add a Blog"}</h1>
-            <div className={classes.formWrapper}>
+        <div className="max-w-2xl mx-auto p-4 sm:p-6"
+        >
+            <h1  className="text-2xl sm:text-3xl font-bold mb-6" >{isEdit?'Edit a Blog':"Add a Blog"}</h1>
+            <div  className="flex flex-col gap-4">
                 <input type="text" 
+                    className="w-full border border-gray-300 rounded-lg p-3 outline-none focus:ring-2 focus:ring-blue-500"
                     placeholder='Enter Blog Title'
                     id='title'
                     name='title'
@@ -59,12 +61,17 @@ export default function AddNewBlog(){
                     onChange={(e)=>setFormData({...formData,title:e.target.value})}
                 />
                 <textarea name="description" 
+                    className="w-full border border-gray-300 rounded-lg p-3 min-h-40 outline-none focus:ring-2 focus:ring-blue-500"
                     id="description"
                     placeholder='Enter Blog Description'
                     value={formData.description}
                     onChange={(e)=>setFormData({...formData,description:e.target.value})}
                 />
-                <button onClick={handleSaveBlogToDatabase}>{isEdit?'Edit Blog':"Add Blog"}</button>
+                <button onClick={handleSaveBlogToDatabase}
+                    className="bg-blue-600 text-white px-5 py-3 rounded-lg font-semibold hover:bg-blue-700 transition w-full sm:w-auto"
+                >
+                    {isEdit?'Edit Blog':"Add Blog"}
+                </button>
             </div>
         </div>
     )

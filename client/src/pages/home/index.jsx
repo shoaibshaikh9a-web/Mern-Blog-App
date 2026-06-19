@@ -45,20 +45,33 @@ export default function Home(){
         fetchListOfBlogs()
     },[])
     return(
-        <div className={classes.wrapper}>
-            <h1>Blog List</h1>
+        <div  className="max-w-5xl mx-auto p-6">
+            <h1 className="text-3xl font-bold mb-6">Blog List</h1>
             {
-                pending ? <h1>Loading Blogs ! Please wait</h1> 
-                : <div className={classes.blogList}>
+                pending ? <h1 className="text-lg font-medium text-gray-600">Loading Blogs ! Please wait</h1> 
+                : <div  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                         {
                             blogList && blogList.length ? blogList.map((blogItem)=>
-                            <div key={blogItem._id}>
-                                <p>{blogItem.title}</p>
-                                <p>{blogItem.description}</p>
-                                <FaEdit onClick={()=>handleEdit(blogItem)} size={20}/>
-                                <FaTrash onClick={()=>handleDeleteBlog(blogItem._id)} size={20}/>
+                            <div key={blogItem._id}
+                                //className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm hover:shadow-md transition"
+                                className="bg-gradient-to-br from-white to-blue-50 border border-blue-200 rounded-xl p-5 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                            >
+                                <p //className="text-xl font-semibold text-gray-800 mb-2"
+                                    className="text-xl font-bold text-blue-700 mb-2"
+                                >
+                                    {blogItem.title}
+                                </p>
+                                <p //className="text-gray-600 mb-4"
+                                    className="flex gap-4 pt-2 border-t border-blue-100"
+                                >
+                                    {blogItem.description}
+                                </p>
+                                <div className="flex gap-4">
+                                    <FaEdit className="text-blue-600 cursor-pointer hover:text-blue-800" onClick={()=>handleEdit(blogItem)} size={20}/>
+                                    <FaTrash className="text-red-600 cursor-pointer hover:text-red-800" onClick={()=>handleDeleteBlog(blogItem._id)} size={20}/>
+                                </div>
                             </div>
-                            ) : <h3>No Blogs Added</h3>
+                            ) : <h3  className="text-gray-500 text-lg">No Blogs Added</h3>
                         }
                 </div>
             }
