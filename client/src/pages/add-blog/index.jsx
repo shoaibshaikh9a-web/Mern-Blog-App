@@ -13,11 +13,11 @@ export default function AddNewBlog(){
     const location =useLocation()
 
     async function handleSaveBlogToDatabase() {
-        const response= isEdit ? await axios.put(`http://localhost:5000/api/blogs/update/${location.state.getCurrentBlogItem._id}`,{
+        const response= isEdit ? await axios.put(`${import.meta.env.VITE_API_URL}/api/blogs/update/${location.state.getCurrentBlogItem._id}`,{
             title:formData.title,
             description: formData.description
         })
-        : await axios.post('http://localhost:5000/api/blogs/add',{
+        : await axios.post(`${import.meta.env.VITE_API_URL}/api/blogs/add`,{
             title:formData.title,
             description:formData.description
         })

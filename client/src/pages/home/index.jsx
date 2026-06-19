@@ -14,7 +14,7 @@ export default function Home(){
 
     async function fetchListOfBlogs() {
         setPending(true)
-        const response= await axios.get('http://localhost:5000/api/blogs')
+        const response= await axios.get(`${import.meta.env.VITE_API_URL}/api/blogs`)
         const result= await response.data;
 
         console.log(result)
@@ -28,7 +28,7 @@ export default function Home(){
     };
     async function handleDeleteBlog(getCurrentId) {
         console.log(getCurrentId)
-        const response= await axios.delete(`http://localhost:5000/api/blogs/delete/${getCurrentId}`)
+        const response= await axios.delete(`${import.meta.env.VITE_API_URL}/api/blogs/delete/${getCurrentId}`)
         const result= await response.data;
 
         console.log(result)
