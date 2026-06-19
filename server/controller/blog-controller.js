@@ -31,10 +31,18 @@ const fetchListOfBlogs= async(req,res)=>{
 
     try{
         await newlyCreateBlog.save()
+        //updated code:
+        return res.status(200).json({
+            newlyCreateBlog
+        });
     }catch(e){
         console.log(e);
+        //updated code:
+        return res.status(500).json({
+            message: e.message
+        });
     }
-
+/*
     try{
         const session= await mongoose.startSession();
         session.startTransaction();
@@ -45,6 +53,7 @@ const fetchListOfBlogs= async(req,res)=>{
     }
 
     return res.status(200).json({newlyCreateBlog});
+*/
  }
 
  const deleteABlog= async(req,res)=>{
